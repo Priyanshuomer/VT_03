@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     avatarUrl: { type: String },
+    isAdmin: {type: Boolean, default: false},
     isBlocked: {type: Boolean, default: false},  // whether the user is able to purchase or blocked by admin 
 
     isEmailVerified: { type: Boolean, default: false },

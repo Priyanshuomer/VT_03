@@ -2,24 +2,17 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
-import rateLimit from "express-rate-limit";
+
 import { connectDB } from "./config/db.js";
 
 import authRoutes from "./routes/authRoutes.js";
-import contactRoutes from "./routes/contactRoutes.js";
-// Optional: import other routes like planRoutes, adminRoutes, etc.
+import commonRoutes from "./routes/commonRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
 const app = express();
 
-// Rate Limiting Middleware
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 70, 
-  message: "Too many requests from this IP, please try again later.",
-});
-app.use(limiter);
 
 // Middleware Setup
 app.use(helmet()); 
@@ -37,7 +30,8 @@ try {
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/contact", contactRoutes);
+app.use("/api", commonRoutes);
+app.use("/ap/user",userRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
