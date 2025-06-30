@@ -8,6 +8,7 @@ import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import commonRoutes from "./routes/commonRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ try {
 app.use("/api/auth", authRoutes);
 app.use("/api", commonRoutes);
 app.use("/ap/user",userRoutes);
+app.use("/api/admin",adminRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");

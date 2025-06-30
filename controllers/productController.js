@@ -1,7 +1,7 @@
 import Product from "../models/Product.js";
 
 
-export const viewAllAvailablePrpducts = async (req,res) => {
+export const viewAllAvailableProducts = async (req,res) => {
 
 };
 

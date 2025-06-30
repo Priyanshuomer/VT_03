@@ -1,7 +1,7 @@
 import express from "express";
 import { subscribedPlansOfUser, addPlanToUser } from "../controllers/planController.js";
 import { subscribedProductsOfUser, addProductToUser } from "../controllers/productController.js";
-import { verifyToken } from "../middleware/auth.middleware";
+import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
